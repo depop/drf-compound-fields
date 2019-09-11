@@ -45,7 +45,6 @@ class ListField(WritableField):
         return obj
 
     def from_native(self, data):
-        self.validate_is_list(data)
         if self.item_field and data:
             return [
                 self.item_field.from_native(item_data)
