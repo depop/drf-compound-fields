@@ -57,7 +57,7 @@ class ListField(WritableField):
 
         self.validate_is_list(value)
 
-        if self.item_field:
+        if self.item_field and value is not None:
             errors = {}
             for index, item in enumerate(value):
                 try:
@@ -71,7 +71,7 @@ class ListField(WritableField):
     def run_validators(self, value):
         super(ListField, self).run_validators(value)
 
-        if self.item_field:
+        if self.item_field and value is not None:
             errors = {}
             for index, item in enumerate(value):
                 try:
