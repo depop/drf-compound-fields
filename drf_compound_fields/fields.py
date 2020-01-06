@@ -190,7 +190,7 @@ class DictField(WritableField):
 
         self.validate_is_dict(value)
 
-        if self.value_field:
+        if self.value_field and value is not None:
             errors = {}
             for k, v in six.iteritems(value):
                 try:
@@ -204,7 +204,7 @@ class DictField(WritableField):
     def run_validators(self, value):
         super(DictField, self).run_validators(value)
 
-        if self.value_field:
+        if self.value_field and value is not None:
             errors = {}
             for k, v in six.iteritems(value):
                 try:
